@@ -1,0 +1,16 @@
+.cell {
+  display: inline-block;
+  border: 1px solid #000;
+  width: 10px;
+  height: 10px;
+  margin-left: -1px;
+  margin-bottom: -1px;
+}
+
+.alive {
+  background-color: yellow;
+}
+
+.dead {
+  background-color: greenyellow;
+}
