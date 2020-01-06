@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Board from "../Board/Board";
-import "./App.css";
+import Board from '../Board/Board';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       cells: [],
       rows: 30,
-      cols: 50
+      cols: 50,
     };
   }
 
@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   run() {
-    const { rows, cols, cells, generation } = this.state;
+    const { rows, cols, cells } = this.state;
     const size = rows * cols;
     let newCells = cells.slice();
 
@@ -48,15 +48,14 @@ class App extends Component {
 
     this.setState({
       cells: newCells,
-      generation: generation + 1
     });
   }
 
-  selectCell = id => {
+  selectCell = (id) => {
     let cells = this.state.cells.slice();
     cells[id] = !cells[id];
     this.setState({
-      cells
+      cells,
     });
   };
 
@@ -74,12 +73,12 @@ class App extends Component {
   }
 
   render() {
-    const { cols, generation, cells } = this.state;
+    const { cols, cells } = this.state;
     const width = cols * 11;
 
     return (
       <>
-        <Board cells={cells} width={width} generation={generation} onSelect={this.selectCell} />
+        <Board cells={cells} width={width} onSelect={this.selectCell} />
         <button onClick={this.play}>Play</button>
         <button onClick={this.pause}>Pause</button>
       </>
